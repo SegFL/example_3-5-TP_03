@@ -3,6 +3,7 @@
 #include "mbed.h"
 #include "arm_book_lib.h"
 
+
 //=====[Defines]===============================================================
 
 #define NUMBER_OF_KEYS                           4
@@ -68,6 +69,8 @@ void availableCommands();
 bool areEqual();
 float celsiusToFahrenheit( float tempInCelsiusDegrees );
 float analogReadingScaledWithTheLM35Formula( float analogReading );
+
+
 
 //=====[Main function, the program entry point after power on or reset]========
 
@@ -302,14 +305,14 @@ void uartTask()
         case 'P':
             potentiometerReading = potentiometer.read();
             sprintf ( str, "Potentiometer: %.2f\r\n", potentiometerReading );
-            stringLength = strlen(str);
+            stringLength = 15;
             uartUsb.write( str, stringLength );
             break;
 
         case 'c':
         case 'C':
             sprintf ( str, "Temperature: %.2f \xB0 C\r\n", lm35TempC );
-            stringLength = strlen(str);
+            stringLength = 15;
             uartUsb.write( str, stringLength );
             break;
 
@@ -317,7 +320,7 @@ void uartTask()
         case 'F':
             sprintf ( str, "Temperature: %.2f \xB0 F\r\n", 
                 celsiusToFahrenheit( lm35TempC ) );
-            stringLength = strlen(str);
+            stringLength = 15;
             uartUsb.write( str, stringLength );
             break;
 
