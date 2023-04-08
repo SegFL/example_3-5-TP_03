@@ -30,10 +30,25 @@ DigitalOut systemBlockedLed(LED2);
 
 DigitalInOut sirenPin(PE_10);
 
+/* 
+Llama a un constructor de la clase UnbufferedSerial y lo inicializa con los pines USBTX, USBRX. Le asigna un 
+baudrate de 115200
+*/
+
 UnbufferedSerial uartUsb(USBTX, USBRX, 115200);
+
 
 AnalogIn potentiometer(A0);
 AnalogIn lm35(A1);
+/*
+Objeto: 
+Clase
+Metodo
+Herencia
+Constructor
+Sobrecarga
+
+*/
 
 //=====[Declaration and initialization of public global variables]=============
 
@@ -305,14 +320,14 @@ void uartTask()
         case 'P':
             potentiometerReading = potentiometer.read();
             sprintf ( str, "Potentiometer: %.2f\r\n", potentiometerReading );
-            stringLength = 15;
+            stringLength = 50;
             uartUsb.write( str, stringLength );
             break;
 
         case 'c':
         case 'C':
             sprintf ( str, "Temperature: %.2f \xB0 C\r\n", lm35TempC );
-            stringLength = 15;
+            stringLength = 50;
             uartUsb.write( str, stringLength );
             break;
 
@@ -320,7 +335,7 @@ void uartTask()
         case 'F':
             sprintf ( str, "Temperature: %.2f \xB0 F\r\n", 
                 celsiusToFahrenheit( lm35TempC ) );
-            stringLength = 15;
+            stringLength = 50;
             uartUsb.write( str, stringLength );
             break;
 
