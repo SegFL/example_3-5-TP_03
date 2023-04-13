@@ -24,11 +24,41 @@ DigitalIn cButton(D6);
 DigitalIn dButton(D7);
 DigitalIn mq2(PE_12);
 
+/*
+Objeto:     ...
+Clase:      DigitalIn
+Metodo:     -----
+Herencia:   gpio
+Constructor:    DigitalIn(PinName pin) : gpio()
+Sobrecarga:     
+*/
+
+
 DigitalOut alarmLed(LED1);
 DigitalOut incorrectCodeLed(LED3);
 DigitalOut systemBlockedLed(LED2);
 
+/*
+Objeto:     ...
+Clase:      DigitaOut
+Metodo:     -----
+Herencia:   gpio
+Constructor:     DigitalOut(PinName pin) : gpio()
+Sobrecarga:     
+*/
+
 DigitalInOut sirenPin(PE_10);
+
+/*
+Objeto:     sirenPin
+Clase:      DigitaInOut
+Metodo:     -----
+Herencia:   gpio
+Constructor:    DigitalInOut(PinName pin, PinDirection direction, PinMode mode, int value) : gpio()
+Sobrecarga:     
+*/
+
+
 
 /* 
 Llama a un constructor de la clase UnbufferedSerial y lo inicializa con los pines USBTX, USBRX. Le asigna un 
@@ -41,13 +71,12 @@ UnbufferedSerial uartUsb(USBTX, USBRX, 115200);
 AnalogIn potentiometer(A0);
 AnalogIn lm35(A1);
 /*
-Objeto: 
-Clase
-Metodo
-Herencia
-Constructor
-Sobrecarga
-
+Objeto:     potentiometer
+Clase:      AnalogIn
+Metodo:     -----
+Herencia:   analogpin_api
+Constructor:
+Sobrecarga:
 */
 
 //=====[Declaration and initialization of public global variables]=============
